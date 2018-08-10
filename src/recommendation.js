@@ -16,7 +16,6 @@ const sortStrainsBasedOnRating = (strainList) => {
 const extractBuzzwords = (incomingBuzzwords) => {
   const values = {effects: [], flavor: []}
   incomingBuzzwords.forEach(buzzword => {
-    console.log(buzzword, values)
     values[buzzword.category].push(buzzword.word)
   })
   return values
@@ -24,7 +23,7 @@ const extractBuzzwords = (incomingBuzzwords) => {
 
 const recommendation = (userBuzzwords) => {
   const values = extractBuzzwords(userBuzzwords)
-  const allStrains =  JSON.parse(fs.readFileSync(process.cwd() + '/strains2.json','utf-8'))
+  const allStrains =  JSON.parse(fs.readFileSync(process.cwd() + '/filterStrains2.json','utf-8'))
   const selectedStrains = []
   const strainScores = []
 
